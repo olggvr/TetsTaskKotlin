@@ -2,7 +2,7 @@ package com.example.demo.domain
 
 import jakarta.persistence.*
 import java.time.Instant
-import java.util.*
+import java.util.UUID
 
 @Entity
 @Table(name = "users")
@@ -14,5 +14,5 @@ class User(
     val email: String,
 
     @Column(nullable = false)
-    val createdAt: Instant = Instant.now(),
+    val createdAt: Instant = Instant.now()
 )

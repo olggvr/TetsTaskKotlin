@@ -11,4 +11,8 @@ data class CreateUserRequest(
     val email: String?
 )
 
-data class UserResponse(val id: UUID, val email: String, val createdAt: Instant)
+data class UserResponse(
+    val id: UUID,
+    val email: String,
+    val createdAt: Instant
+)

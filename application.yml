@@ -3,27 +3,31 @@ spring:
     url: jdbc:postgresql://localhost:5433/users
     username: users
     password: users
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        jdbc:
-          time_zone: UTC
-    open-in-view: false
+        jdbc.time_zone: UTC
   rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
+    listener:
+      simple:
+        acknowledge-mode: auto
+        prefetch: 10
 
 app:
   rabbit:
     queue: user_registered
     exchange: users.exchange
-    routingKey: user_registered
+    routingKey: user.registered
     bindingKeyPattern: user.*
 
 logging:
   level:
-    root: INFO
+    com.example.demo: INFO
+    org.springframework.amqp: INFO

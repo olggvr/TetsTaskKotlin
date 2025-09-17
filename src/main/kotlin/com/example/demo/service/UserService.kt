@@ -25,7 +25,7 @@ class UserService(
         val saved = repo.save(User(email = email))
         log.info("User registered: id={}, email={}", saved.id, saved.email)
 
-        appEvents.publishEvent(UserCreatedEvent(saved.email))
+        appEvents.publishEvent(UserCreatedEvent(saved.email))  // RabbitMQ позже, после коммита
 
         return UserResponse(saved.id, saved.email, saved.createdAt)
     }
