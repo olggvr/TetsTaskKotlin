@@ -11,7 +11,6 @@ class UserRegisteredPublisher(
     private val props: RabbitProps
 ) {
     fun publish(email: String) {
-        val event = UserRegisteredEvent(email)
-        rabbitTemplate.convertAndSend(props.exchange, props.routingKey, event)
+        rabbitTemplate.convertAndSend(props.exchange, props.routingKey, UserRegisteredEvent(email))
     }
 }

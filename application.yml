@@ -22,6 +22,7 @@ app:
     queue: user_registered
     exchange: users.exchange
     routingKey: user_registered
+    bindingKeyPattern: user.*
 
 logging:
   level:

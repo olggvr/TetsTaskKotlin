@@ -1,6 +1,7 @@
 package com.example.demo.api
 
 import com.example.demo.service.UserService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
@@ -11,6 +12,6 @@ class UserController(
 ) {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody req: CreateUserRequest): UserResponse =
+    fun create(@Valid @RequestBody req: CreateUserRequest): UserResponse =
         service.register(req)
 }
